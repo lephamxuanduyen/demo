@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +43,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.fltabCus = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,6 +59,15 @@
             this.panel1.Size = new System.Drawing.Size(425, 305);
             this.panel1.TabIndex = 0;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(422, 299);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -67,7 +76,7 @@
             this.thôngTinTàiKhóaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -177,28 +186,21 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listView1
+            // fltabCus
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(422, 299);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(12, 31);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(392, 444);
-            this.panel4.TabIndex = 5;
+            this.fltabCus.AutoScroll = true;
+            this.fltabCus.Location = new System.Drawing.Point(12, 31);
+            this.fltabCus.Name = "fltabCus";
+            this.fltabCus.Size = new System.Drawing.Size(392, 444);
+            this.fltabCus.TabIndex = 5;
+            this.fltabCus.Paint += new System.Windows.Forms.PaintEventHandler(this.fltabCus_Paint);
             // 
             // fOrderManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 477);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.fltabCus);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -238,6 +240,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.FlowLayoutPanel fltabCus;
     }
 }

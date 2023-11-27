@@ -1,4 +1,5 @@
 ﻿using demo.DAO;
+using demo.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,21 +17,27 @@ namespace demo
         public fOrderManager()
         {
             InitializeComponent();
-            loadBillList();
-            loadTotalBill();
+            loadCus();
         }
 
-        void loadBillList()
-        {
-            string query = "pTaoHoaDon";
-            dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);
-        }
+        #region Method
 
-        void loadTotalBill()
+        void loadCus()
         {
-            string query = "pTongTien";
-            textBox2.Text = DataProvider.Instance.ExecuteQuery(query).ToString();
+            List<cus> cusList = cusDAO.Instance.loadCusList();
+
+            foreach (cus item in cusList)
+            {
+                Button btn = new Button() { Width = cusDAO.cusWidth, Height = cusDAO.cusHeight};
+                btn.Text = item.Id + Environment.NewLine + item.Name;
+                btn.BackColor = Color.Aqua;
+                fltabCus.Controls.Add(btn);
+            }
         }
+        #endregion
+
+        #region Events
+        #endregion
 
         private void fTableManager_Load(object sender, EventArgs e)
         {
@@ -84,6 +91,11 @@ namespace demo
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fltabCus_Paint(object sender, PaintEventArgs e)
         {
 
         }
