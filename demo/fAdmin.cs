@@ -1,4 +1,5 @@
 ﻿using demo.DAO;
+using demo.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace demo
 {
     public partial class fAdmin : Form
     {
+        #region method
         public fAdmin()
         {
             InitializeComponent();
@@ -41,8 +43,9 @@ namespace demo
 
         void loadProdList()
         {
-            string query = "select TenSP, DonVi, GiaBan, GiaNhap, TonKho from HANG";
-            dataGridView2.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            dataGridView2.DataSource = ProductDAO.Instance.GetListProducts();
+            // string query = "select TenSP, DonVi, GiaBan, GiaNhap, TonKho from HANG";
+            // dataGridView2.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         void loadCateList()
@@ -69,9 +72,27 @@ namespace demo
             dataGridView7.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
+        
+
+        #endregion
+
         private void button1_Click(object sender, EventArgs e)
         {
+            string name =  textBox1.Text;
+            string donvi = textBox2.Text;
+            int giaban = (int)numericUpDown1.Value;
+            int giahap = (int)numericUpDown2.Value;
+            string maloai = textBox4.Text;
 
+            if (ProductDAO.Instance.InsertProd(name, donvi, giaban, giahap, maloai))
+            {
+                MessageBox.Show("Thêm sản phẩm thành công");
+                loadProdList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm sản phẩm");
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -118,5 +139,12 @@ namespace demo
         {
 
         }
+
+        #region event
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            loadProdList();
+        }
+        #endregion
     }
 }

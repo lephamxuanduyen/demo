@@ -12,6 +12,7 @@ namespace demo.DTO
         private string id;
         private string name;
         private string address;
+        private string billType;
         public cus(string id, string name, string address)
         {
             this.Id = id;
