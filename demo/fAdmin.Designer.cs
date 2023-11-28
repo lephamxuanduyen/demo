@@ -143,9 +143,6 @@
             this.panel39 = new System.Windows.Forms.Panel();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel40 = new System.Windows.Forms.Panel();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -203,7 +200,6 @@
             this.panel2.SuspendLayout();
             this.panel38.SuspendLayout();
             this.panel39.SuspendLayout();
-            this.panel40.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel42.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -395,7 +391,6 @@
             // 
             this.textBox17.Location = new System.Drawing.Point(97, 3);
             this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(237, 22);
             this.textBox17.TabIndex = 1;
             this.textBox17.UseSystemPasswordChar = true;
@@ -422,7 +417,6 @@
             // 
             this.textBox18.Location = new System.Drawing.Point(97, 3);
             this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(237, 22);
             this.textBox18.TabIndex = 1;
             // 
@@ -585,7 +579,6 @@
             // 
             this.textBox20.Location = new System.Drawing.Point(97, 3);
             this.textBox20.Name = "textBox20";
-            this.textBox20.ReadOnly = true;
             this.textBox20.Size = new System.Drawing.Size(237, 22);
             this.textBox20.TabIndex = 1;
             // 
@@ -611,7 +604,6 @@
             // 
             this.textBox19.Location = new System.Drawing.Point(97, 3);
             this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
             this.textBox19.Size = new System.Drawing.Size(237, 22);
             this.textBox19.TabIndex = 1;
             // 
@@ -637,7 +629,6 @@
             // 
             this.textBox12.Location = new System.Drawing.Point(97, 3);
             this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(237, 22);
             this.textBox12.TabIndex = 1;
             // 
@@ -663,7 +654,6 @@
             // 
             this.textBox13.Location = new System.Drawing.Point(97, 3);
             this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(237, 22);
             this.textBox13.TabIndex = 1;
             // 
@@ -689,7 +679,6 @@
             // 
             this.textBox14.Location = new System.Drawing.Point(97, 3);
             this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(237, 22);
             this.textBox14.TabIndex = 1;
             // 
@@ -888,7 +877,6 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(97, 3);
             this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(237, 22);
             this.textBox5.TabIndex = 1;
             // 
@@ -915,7 +903,6 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(97, 3);
             this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(237, 22);
             this.textBox6.TabIndex = 1;
             // 
@@ -1072,7 +1059,6 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(97, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(237, 22);
             this.textBox2.TabIndex = 1;
             // 
@@ -1098,7 +1084,6 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(97, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(237, 22);
             this.textBox1.TabIndex = 1;
             // 
@@ -1124,7 +1109,6 @@
             // 
             this.tbIDSP.Location = new System.Drawing.Point(97, 3);
             this.tbIDSP.Name = "tbIDSP";
-            this.tbIDSP.ReadOnly = true;
             this.tbIDSP.Size = new System.Drawing.Size(237, 22);
             this.tbIDSP.TabIndex = 1;
             this.tbIDSP.TextChanged += new System.EventHandler(this.tbName_TextChanged);
@@ -1260,7 +1244,6 @@
             // panel38
             // 
             this.panel38.Controls.Add(this.panel39);
-            this.panel38.Controls.Add(this.panel40);
             this.panel38.Controls.Add(this.panel41);
             this.panel38.Controls.Add(this.panel42);
             this.panel38.Location = new System.Drawing.Point(477, 91);
@@ -1272,7 +1255,7 @@
             // 
             this.panel39.Controls.Add(this.textBox22);
             this.panel39.Controls.Add(this.label16);
-            this.panel39.Location = new System.Drawing.Point(3, 114);
+            this.panel39.Location = new System.Drawing.Point(3, 79);
             this.panel39.Name = "panel39";
             this.panel39.Size = new System.Drawing.Size(337, 31);
             this.panel39.TabIndex = 3;
@@ -1281,7 +1264,6 @@
             // 
             this.textBox22.Location = new System.Drawing.Point(97, 6);
             this.textBox22.Name = "textBox22";
-            this.textBox22.ReadOnly = true;
             this.textBox22.Size = new System.Drawing.Size(237, 22);
             this.textBox22.TabIndex = 2;
             // 
@@ -1293,32 +1275,6 @@
             this.label16.Size = new System.Drawing.Size(50, 16);
             this.label16.TabIndex = 0;
             this.label16.Text = "Địa chỉ:";
-            // 
-            // panel40
-            // 
-            this.panel40.Controls.Add(this.textBox23);
-            this.panel40.Controls.Add(this.label17);
-            this.panel40.Location = new System.Drawing.Point(3, 77);
-            this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(337, 31);
-            this.panel40.TabIndex = 2;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(97, 3);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.ReadOnly = true;
-            this.textBox23.Size = new System.Drawing.Size(237, 22);
-            this.textBox23.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(88, 16);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Số điện thoại:";
             // 
             // panel41
             // 
@@ -1333,7 +1289,6 @@
             // 
             this.textBox24.Location = new System.Drawing.Point(97, 3);
             this.textBox24.Name = "textBox24";
-            this.textBox24.ReadOnly = true;
             this.textBox24.Size = new System.Drawing.Size(237, 22);
             this.textBox24.TabIndex = 1;
             // 
@@ -1359,7 +1314,6 @@
             // 
             this.textBox25.Location = new System.Drawing.Point(97, 3);
             this.textBox25.Name = "textBox25";
-            this.textBox25.ReadOnly = true;
             this.textBox25.Size = new System.Drawing.Size(237, 22);
             this.textBox25.TabIndex = 1;
             // 
@@ -1467,8 +1421,6 @@
             this.panel38.ResumeLayout(false);
             this.panel39.ResumeLayout(false);
             this.panel39.PerformLayout();
-            this.panel40.ResumeLayout(false);
-            this.panel40.PerformLayout();
             this.panel41.ResumeLayout(false);
             this.panel41.PerformLayout();
             this.panel42.ResumeLayout(false);
@@ -1595,9 +1547,6 @@
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel40;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.Label label20;

@@ -40,12 +40,11 @@ namespace demo
 
         void showBill(string id)
         {
+            listView1.Items.Clear();
             List<demo.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByCus(id);
 
             foreach (demo.DTO.Menu item in listBillInfo)
             {
-                listView1.Items.Clear();
-
                 ListViewItem lsvitem = new ListViewItem(item.ProdName.ToString());
                 lsvitem.SubItems.Add(item.Count.ToString());
                 lsvitem.SubItems.Add(item.TotalPrice.ToString());
