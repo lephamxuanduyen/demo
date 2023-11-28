@@ -31,12 +31,36 @@ namespace demo
                 Button btn = new Button() { Width = cusDAO.cusWidth, Height = cusDAO.cusHeight};
                 btn.Text = item.Id + Environment.NewLine + item.Name;
                 btn.BackColor = Color.Aqua;
+                btn.Click += btn_Click;
+                btn.Tag = item;
+
                 fltabCus.Controls.Add(btn);
+            }
+        }
+
+        void showBill(string id)
+        {
+            List<demo.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByCus(id);
+
+            foreach (demo.DTO.Menu item in listBillInfo)
+            {
+                listView1.Items.Clear();
+
+                ListViewItem lsvitem = new ListViewItem(item.ProdName.ToString());
+                lsvitem.SubItems.Add(item.Count.ToString());
+                lsvitem.SubItems.Add(item.TotalPrice.ToString());
+
+                listView1.Items.Add(lsvitem);
             }
         }
         #endregion
 
         #region Events
+        void btn_Click(object sender, EventArgs e)
+        {
+            string cusID = ((sender as Button).Tag as cus).Id;
+            showBill(cusID);
+        }
         #endregion
 
         private void fTableManager_Load(object sender, EventArgs e)
@@ -97,7 +121,6 @@ namespace demo
 
         private void fltabCus_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }
