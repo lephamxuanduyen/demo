@@ -24,6 +24,12 @@ namespace demo
             load();
         }
         #region method
+
+        List<Product> searchProdByName(string name)
+        {
+            List<Product> productsList = ProductDAO.Instance.SearchProductsByName(name);
+            return productsList;
+        }
         void load()
         {
             dataGridView2.DataSource = ListProd;
@@ -155,10 +161,7 @@ namespace demo
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -190,6 +193,11 @@ namespace demo
             numBan.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaBan", true, DataSourceUpdateMode.Never));
             tbLoaiHang.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaLoaiHang", true, DataSourceUpdateMode.Never));
 
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //vgbnm
+            ListProd.DataSource = searchProdByName(textBoxSearchName.Text);
         }
         #endregion
     }

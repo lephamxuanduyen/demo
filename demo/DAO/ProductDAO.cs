@@ -40,7 +40,8 @@ namespace demo.DAO
 
         public bool updateProd(string name, string donvi, int giaban, int gianhap, string maloai, string masp)
         {
-            string query = "spUpdateProd @ten , @donvi , @giaban , @gianhap ,  @maloai , @masp";
+            // string query = "spUpdateProd @ten , @donvi , @giaban , @gianhap ,  @maloai , @masp";
+            string query = String.Format("select * from hang where TenSP like N'%{0}%'",name);
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, donvi, giaban, gianhap, maloai, masp});
             return result > 0;
         }
@@ -50,6 +51,19 @@ namespace demo.DAO
             string query = "spDeleteProd @masp";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp });
             return result > 0;
+        }
+
+        public List<Product> SearchProductsByName(string name) 
+        {
+            List<Product> listProduct = new List<Product>();
+            string query = "spSearchProdByName @name";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] {name});
+            foreach (DataRow item in data.Rows)
+            {
+                Product prod = new Product(item);
+                listProduct.Add(prod);
+            }
+            return listProduct;
         }
     }
 }

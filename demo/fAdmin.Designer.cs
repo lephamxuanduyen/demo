@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.button23 = new System.Windows.Forms.Button();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.panel34 = new System.Windows.Forms.Panel();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -81,10 +77,6 @@
             this.tabPageNhap = new System.Windows.Forms.TabPage();
             this.panel50 = new System.Windows.Forms.Panel();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.panel51 = new System.Windows.Forms.Panel();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.button21 = new System.Windows.Forms.Button();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.tabPageProductCart = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -151,7 +143,6 @@
             this.tbIDProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
-            this.panel35.SuspendLayout();
             this.panel34.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -174,7 +165,6 @@
             this.tabPageNhap.SuspendLayout();
             this.panel50.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            this.panel51.SuspendLayout();
             this.tabPageProductCart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel10.SuspendLayout();
@@ -209,7 +199,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel35);
             this.tabPage2.Controls.Add(this.panel34);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
@@ -219,45 +208,12 @@
             this.tabPage2.Text = "Doanh thu";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel35
-            // 
-            this.panel35.Controls.Add(this.dateTimePicker5);
-            this.panel35.Controls.Add(this.button23);
-            this.panel35.Controls.Add(this.dateTimePicker6);
-            this.panel35.Location = new System.Drawing.Point(30, 17);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(764, 34);
-            this.panel35.TabIndex = 8;
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Location = new System.Drawing.Point(313, 6);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(272, 22);
-            this.dateTimePicker5.TabIndex = 3;
-            // 
-            // button23
-            // 
-            this.button23.Location = new System.Drawing.Point(622, 6);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(139, 23);
-            this.button23.TabIndex = 2;
-            this.button23.Text = "Thống kê";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(3, 6);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(272, 22);
-            this.dateTimePicker6.TabIndex = 1;
-            // 
             // panel34
             // 
             this.panel34.Controls.Add(this.dataGridView7);
-            this.panel34.Location = new System.Drawing.Point(4, 57);
+            this.panel34.Location = new System.Drawing.Point(4, 6);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(815, 405);
+            this.panel34.Size = new System.Drawing.Size(815, 456);
             this.panel34.TabIndex = 7;
             // 
             // dataGridView7
@@ -670,7 +626,6 @@
             // tabPageNhap
             // 
             this.tabPageNhap.Controls.Add(this.panel50);
-            this.tabPageNhap.Controls.Add(this.panel51);
             this.tabPageNhap.Location = new System.Drawing.Point(4, 25);
             this.tabPageNhap.Name = "tabPageNhap";
             this.tabPageNhap.Padding = new System.Windows.Forms.Padding(3);
@@ -682,9 +637,9 @@
             // panel50
             // 
             this.panel50.Controls.Add(this.dataGridView8);
-            this.panel50.Location = new System.Drawing.Point(6, 54);
+            this.panel50.Location = new System.Drawing.Point(6, 6);
             this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(815, 405);
+            this.panel50.Size = new System.Drawing.Size(815, 453);
             this.panel50.TabIndex = 4;
             // 
             // dataGridView8
@@ -698,40 +653,6 @@
             this.dataGridView8.RowTemplate.Height = 24;
             this.dataGridView8.Size = new System.Drawing.Size(809, 399);
             this.dataGridView8.TabIndex = 0;
-            // 
-            // panel51
-            // 
-            this.panel51.Controls.Add(this.dateTimePicker4);
-            this.panel51.Controls.Add(this.button21);
-            this.panel51.Controls.Add(this.dateTimePicker3);
-            this.panel51.Location = new System.Drawing.Point(6, 6);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(764, 34);
-            this.panel51.TabIndex = 3;
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(314, 6);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(272, 22);
-            this.dateTimePicker4.TabIndex = 3;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(622, 6);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(139, 23);
-            this.button21.TabIndex = 2;
-            this.button21.Text = "Thống kê";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(3, 6);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(272, 22);
-            this.dateTimePicker3.TabIndex = 1;
             // 
             // tabPageProductCart
             // 
@@ -1363,7 +1284,6 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tabPage2.ResumeLayout(false);
-            this.panel35.ResumeLayout(false);
             this.panel34.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -1395,7 +1315,6 @@
             this.tabPageNhap.ResumeLayout(false);
             this.panel50.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            this.panel51.ResumeLayout(false);
             this.tabPageProductCart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel10.ResumeLayout(false);
@@ -1446,10 +1365,6 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel35;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.DataGridView dataGridView7;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1498,10 +1413,6 @@
         private System.Windows.Forms.TabPage tabPageNhap;
         private System.Windows.Forms.Panel panel50;
         private System.Windows.Forms.DataGridView dataGridView8;
-        private System.Windows.Forms.Panel panel51;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.TabPage tabPageProductCart;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Panel panel10;
