@@ -10,15 +10,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace demo
 {
     public partial class fAdmin : Form
     {
-        #region method
+        BindingSource ListProd = new BindingSource();
+
         public fAdmin()
         {
             InitializeComponent();
+            load();
+        }
+        #region method
+        void load()
+        {
+            dataGridView2.DataSource = ListProd;
+
             LoadAcList();
             loadCusList();
             loadProdList();
@@ -26,6 +35,7 @@ namespace demo
             loadLSNhap();
             loadNPPList();
             loadDT();
+            AddProdBinding();
         }
 
         void LoadAcList() 
@@ -43,7 +53,7 @@ namespace demo
 
         void loadProdList()
         {
-            dataGridView2.DataSource = ProductDAO.Instance.GetListProducts();
+            ListProd.DataSource = ProductDAO.Instance.GetListProducts();
             // string query = "select TenSP, DonVi, GiaBan, GiaNhap, TonKho from HANG";
             // dataGridView2.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
@@ -78,11 +88,11 @@ namespace demo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name =  textBox1.Text;
-            string donvi = textBox2.Text;
-            int giaban = (int)numericUpDown1.Value;
-            int giahap = (int)numericUpDown2.Value;
-            string maloai = textBox4.Text;
+            string name =  tbName.Text;
+            string donvi = tbDonvi.Text;
+            int giaban = (int)numNhap.Value;
+            int giahap = (int)numBan.Value;
+            string maloai = tbLoaiHang.Text;
 
             if (ProductDAO.Instance.InsertProd(name, donvi, giaban, giahap, maloai))
             {
@@ -97,7 +107,22 @@ namespace demo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            string name = tbName.Text;
+            string donvi = tbDonvi.Text;
+            int giaban = (int)numNhap.Value;
+            int giahap = (int)numBan.Value;
+            string maloai = tbLoaiHang.Text;
+            string masp = tbIDProd.Text;
 
+            if (ProductDAO.Instance.updateProd(name, donvi, giaban, giahap, maloai, masp))
+            {
+                MessageBox.Show("Sửa sản phẩm thành công");
+                loadProdList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa sản phẩm");
+            }
         }
 
         private void laName_Click(object sender, EventArgs e)
@@ -117,7 +142,17 @@ namespace demo
 
         private void btnDel_Click(object sender, EventArgs e)
         {
+            string masp = tbIDProd.Text;
 
+            if (ProductDAO.Instance.deleteProd( masp))
+            {
+                MessageBox.Show("Xóa sản phẩm thành công");
+                loadProdList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa sản phẩm");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -145,6 +180,18 @@ namespace demo
         {
             loadProdList();
         }
+
+        void AddProdBinding()
+        {
+            tbIDProd.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaSP", true, DataSourceUpdateMode.Never));
+            tbName.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "TenSP", true, DataSourceUpdateMode.Never));
+            tbDonvi.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "Donvi", true, DataSourceUpdateMode.Never));
+            numNhap.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
+            numBan.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaBan", true, DataSourceUpdateMode.Never));
+            tbLoaiHang.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaLoaiHang", true, DataSourceUpdateMode.Never));
+
+        }
         #endregion
     }
 }
+ 

@@ -37,5 +37,19 @@ namespace demo.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {name, donvi, giaban, gianhap, maloai});
             return result > 0;
         }
+
+        public bool updateProd(string name, string donvi, int giaban, int gianhap, string maloai, string masp)
+        {
+            string query = "spUpdateProd @ten , @donvi , @giaban , @gianhap ,  @maloai , @masp";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, donvi, giaban, gianhap, maloai, masp});
+            return result > 0;
+        }
+
+        public bool deleteProd(string masp)
+        {
+            string query = "spDeleteProd @masp";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp });
+            return result > 0;
+        }
     }
 }
