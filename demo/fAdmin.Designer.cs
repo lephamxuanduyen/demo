@@ -51,7 +51,7 @@
             this.tabPageNPP = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbSearchSupplyByName = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
@@ -60,19 +60,19 @@
             this.button15 = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.tbStkNPP = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.tbDdNPP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.tbSdtNPP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.tbDchiNPP = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.tbTenNPP = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPageNhap = new System.Windows.Forms.TabPage();
             this.panel50 = new System.Windows.Forms.Panel();
@@ -433,19 +433,19 @@
             // 
             // panel24
             // 
-            this.panel24.Controls.Add(this.textBox11);
+            this.panel24.Controls.Add(this.tbSearchSupplyByName);
             this.panel24.Controls.Add(this.button11);
             this.panel24.Location = new System.Drawing.Point(477, 12);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(343, 73);
             this.panel24.TabIndex = 5;
             // 
-            // textBox11
+            // tbSearchSupplyByName
             // 
-            this.textBox11.Location = new System.Drawing.Point(8, 25);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(242, 22);
-            this.textBox11.TabIndex = 4;
+            this.tbSearchSupplyByName.Location = new System.Drawing.Point(8, 25);
+            this.tbSearchSupplyByName.Name = "tbSearchSupplyByName";
+            this.tbSearchSupplyByName.Size = new System.Drawing.Size(242, 22);
+            this.tbSearchSupplyByName.TabIndex = 4;
             // 
             // button11
             // 
@@ -455,6 +455,7 @@
             this.button11.TabIndex = 3;
             this.button11.Text = "Tìm";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // panel25
             // 
@@ -475,6 +476,7 @@
             this.button12.TabIndex = 3;
             this.button12.Text = "Xem";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -484,6 +486,7 @@
             this.button13.TabIndex = 2;
             this.button13.Text = "Xóa";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -493,6 +496,7 @@
             this.button14.TabIndex = 1;
             this.button14.Text = "Sửa";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -502,6 +506,7 @@
             this.button15.TabIndex = 0;
             this.button15.Text = "Thêm";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // panel26
             // 
@@ -518,19 +523,19 @@
             // 
             // panel27
             // 
-            this.panel27.Controls.Add(this.textBox16);
+            this.panel27.Controls.Add(this.tbStkNPP);
             this.panel27.Controls.Add(this.label12);
             this.panel27.Location = new System.Drawing.Point(3, 195);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(337, 31);
             this.panel27.TabIndex = 5;
             // 
-            // textBox16
+            // tbStkNPP
             // 
-            this.textBox16.Location = new System.Drawing.Point(97, 3);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(237, 22);
-            this.textBox16.TabIndex = 1;
+            this.tbStkNPP.Location = new System.Drawing.Point(97, 3);
+            this.tbStkNPP.Name = "tbStkNPP";
+            this.tbStkNPP.Size = new System.Drawing.Size(237, 22);
+            this.tbStkNPP.TabIndex = 1;
             // 
             // label12
             // 
@@ -543,19 +548,19 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.textBox20);
+            this.panel14.Controls.Add(this.tbDdNPP);
             this.panel14.Controls.Add(this.label5);
             this.panel14.Location = new System.Drawing.Point(3, 159);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(337, 31);
             this.panel14.TabIndex = 4;
             // 
-            // textBox20
+            // tbDdNPP
             // 
-            this.textBox20.Location = new System.Drawing.Point(97, 3);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(237, 22);
-            this.textBox20.TabIndex = 1;
+            this.tbDdNPP.Location = new System.Drawing.Point(97, 3);
+            this.tbDdNPP.Name = "tbDdNPP";
+            this.tbDdNPP.Size = new System.Drawing.Size(237, 22);
+            this.tbDdNPP.TabIndex = 1;
             // 
             // label5
             // 
@@ -568,19 +573,19 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.textBox19);
+            this.panel13.Controls.Add(this.tbSdtNPP);
             this.panel13.Controls.Add(this.label4);
             this.panel13.Location = new System.Drawing.Point(3, 121);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(337, 31);
             this.panel13.TabIndex = 3;
             // 
-            // textBox19
+            // tbSdtNPP
             // 
-            this.textBox19.Location = new System.Drawing.Point(97, 3);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(237, 22);
-            this.textBox19.TabIndex = 1;
+            this.tbSdtNPP.Location = new System.Drawing.Point(97, 3);
+            this.tbSdtNPP.Name = "tbSdtNPP";
+            this.tbSdtNPP.Size = new System.Drawing.Size(237, 22);
+            this.tbSdtNPP.TabIndex = 1;
             // 
             // label4
             // 
@@ -593,19 +598,19 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.textBox12);
+            this.panel28.Controls.Add(this.tbDchiNPP);
             this.panel28.Controls.Add(this.label13);
             this.panel28.Location = new System.Drawing.Point(3, 83);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(337, 31);
             this.panel28.TabIndex = 2;
             // 
-            // textBox12
+            // tbDchiNPP
             // 
-            this.textBox12.Location = new System.Drawing.Point(97, 3);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(237, 22);
-            this.textBox12.TabIndex = 1;
+            this.tbDchiNPP.Location = new System.Drawing.Point(97, 3);
+            this.tbDchiNPP.Name = "tbDchiNPP";
+            this.tbDchiNPP.Size = new System.Drawing.Size(237, 22);
+            this.tbDchiNPP.TabIndex = 1;
             // 
             // label13
             // 
@@ -618,19 +623,19 @@
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.textBox13);
+            this.panel29.Controls.Add(this.tbTenNPP);
             this.panel29.Controls.Add(this.label14);
             this.panel29.Location = new System.Drawing.Point(3, 46);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(337, 31);
             this.panel29.TabIndex = 2;
             // 
-            // textBox13
+            // tbTenNPP
             // 
-            this.textBox13.Location = new System.Drawing.Point(97, 3);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(237, 22);
-            this.textBox13.TabIndex = 1;
+            this.tbTenNPP.Location = new System.Drawing.Point(97, 3);
+            this.tbTenNPP.Name = "tbTenNPP";
+            this.tbTenNPP.Size = new System.Drawing.Size(237, 22);
+            this.tbTenNPP.TabIndex = 1;
             // 
             // label14
             // 
@@ -1502,7 +1507,7 @@
         private System.Windows.Forms.TabPage tabPageNPP;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbSearchSupplyByName;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Button button12;
@@ -1511,19 +1516,19 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox tbStkNPP;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox tbDdNPP;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox tbSdtNPP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox tbDchiNPP;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox tbTenNPP;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPageNhap;
         private System.Windows.Forms.Panel panel50;

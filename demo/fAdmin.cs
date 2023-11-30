@@ -28,6 +28,12 @@ namespace demo
         }
         #region method
 
+        List<Supply> searchSupplyByName(string name)
+        {
+            List<Supply> supplyList = SupplyDAO.Instance.SearchSupplyByName(name);
+            return supplyList;
+        }
+
         List<cate> searchCateByName(string name)
         {
             List<cate> cateList = cateDAO.Instance.SearchCateByName(name);
@@ -70,6 +76,7 @@ namespace demo
             AddAccountBinding();
             AddCusBinding();
             AddCateBinding();
+            AddSupplyBinding();
         }
 
         void LoadAcList() 
@@ -243,6 +250,17 @@ namespace demo
             tbTenDN.DataBindings.Add(new Binding("Text", dataGridView6.DataSource, "TenNguoiBan", true, DataSourceUpdateMode.Never));
             tbMatKhau.DataBindings.Add(new Binding("Text", dataGridView6.DataSource, "MatKhau", true, DataSourceUpdateMode.Never));
         }
+
+        void AddSupplyBinding()
+        {
+            tbIdNpp.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "MaNPP", true, DataSourceUpdateMode.Never));
+            tbTenNPP.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "TenNPP", true, DataSourceUpdateMode.Never));
+            tbDchiNPP.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "Dchi_NPP", true, DataSourceUpdateMode.Never));
+            tbSdtNPP.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "SDT_NPP", true, DataSourceUpdateMode.Never));
+            tbDdNPP.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "DD_NPP", true, DataSourceUpdateMode.Never));
+            tbStkNPP.DataBindings.Add(new Binding("Text", dataGridView5.DataSource, "STK_NPP", true, DataSourceUpdateMode.Never));
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             ListProd.DataSource = searchProdByName(textBoxSearchName.Text);
@@ -411,6 +429,69 @@ namespace demo
         {
             string name = tbSearchByCate.Text;
             dataGridView3.DataSource = searchCateByName(name);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            string name = tbTenNPP.Text;
+            string dchi = tbDchiNPP.Text;
+            string sdt = tbSdtNPP.Text;
+            string dd = tbDdNPP.Text;   
+            string stk = tbStkNPP.Text;
+            if (SupplyDAO.Instance.InsertSupply(name, dchi, sdt, dd, stk))
+            {
+                MessageBox.Show("Thêm nhà phân phối thành công");
+                loadNPPList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm nhà phân phối");
+            }
+                
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            string id = tbIdNpp.Text;
+            string name = tbTenNPP.Text;
+            string dchi = tbDchiNPP.Text;
+            string sdt = tbSdtNPP.Text;
+            string dd = tbDdNPP.Text;
+            string stk = tbStkNPP.Text;
+            if (SupplyDAO.Instance.updateSupply(id, name, dchi, sdt, dd, stk))
+            {
+                MessageBox.Show("Sửa nhà phân phối thành công");
+                loadNPPList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa nhà phân phối");
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            string id = tbIdNpp.Text;
+            if (SupplyDAO.Instance.deleteSupply(id))
+            {
+                MessageBox.Show("Xóa nhà phân phối thành công");
+                loadNPPList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa nhà phân phối");
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            loadNPPList();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            string name = tbSearchSupplyByName.Text;
+            dataGridView5.DataSource = searchSupplyByName(name);
         }
     }
 }

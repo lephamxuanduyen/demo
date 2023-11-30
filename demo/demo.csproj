@@ -54,6 +54,7 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DAO\SupplyDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfor.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DTO\cus.cs" />
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Product.cs" />
+    <Compile Include="DTO\Supply.cs" />
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
