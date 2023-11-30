@@ -17,6 +17,8 @@ namespace demo
     public partial class fAdmin : Form
     {
         BindingSource ListProd = new BindingSource();
+        BindingSource ListAccount = new BindingSource();
+        BindingSource ListCustomer = new BindingSource();
 
         public fAdmin()
         {
@@ -30,29 +32,46 @@ namespace demo
             List<Product> productsList = ProductDAO.Instance.SearchProductsByName(name);
             return productsList;
         }
+
+        List<Account> searchAccountByName(string name)
+        {
+            List<Account> accountsList = AccountDAO.Instance.SearchAccountByName(name);
+            return accountsList;
+        }
+
+        List<cus> searchCustomerByName(string name)
+        {
+            List<cus> CustomerList = cusDAO.Instance.SearchCustomersByName(name);
+            return CustomerList;
+        }
         void load()
         {
             dataGridView2.DataSource = ListProd;
+            dataGridView6.DataSource = ListAccount;
+            dataGridView1.DataSource = ListCustomer;
 
-            LoadAcList();
             loadCusList();
             loadProdList();
+            LoadAcList();
             loadCateList();
             loadLSNhap();
             loadNPPList();
             loadDT();
             AddProdBinding();
+            AddAccountBinding();
+            AddCusBinding();
         }
 
         void LoadAcList() 
         {
-            string query = "select * from NguoiBan";
-
-            dataGridView6.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            ListAccount.DataSource = AccountDAO.Instance.GetListAccount();
+            // string query = "select * from NguoiBan";
+            // dataGridView6.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         void loadCusList()
         {
+            // ListCustomer.DataSource = cusDAO.Instance.GetCusList();
             string query = "select * from KHACHHANG";
             dataGridView1.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
@@ -194,12 +213,134 @@ namespace demo
             tbLoaiHang.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaLoaiHang", true, DataSourceUpdateMode.Never));
 
         }
+
+        void AddCusBinding()
+        {
+            tbCusID.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "MaKH",true, DataSourceUpdateMode.Never));
+            tbCusName.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "TenKH", true, DataSourceUpdateMode.Never));
+            tbCusAdd.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DchiKH", true,DataSourceUpdateMode.Never));
+        }
+
+        void AddAccountBinding()
+        {
+            tbTenDN.DataBindings.Add(new Binding("Text", dataGridView6.DataSource, "TenNguoiBan", true, DataSourceUpdateMode.Never));
+            tbMatKhau.DataBindings.Add(new Binding("Text", dataGridView6.DataSource, "MatKhau", true, DataSourceUpdateMode.Never));
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //vgbnm
             ListProd.DataSource = searchProdByName(textBoxSearchName.Text);
         }
         #endregion
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            LoadAcList();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            string name = tbTenDN.Text;
+            string pass = tbMatKhau.Text;
+            if (AccountDAO.Instance.InsertAccount(name, pass))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+                LoadAcList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm tài khoản");
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            string name = tbTenDN.Text;
+            if (AccountDAO.Instance.DeleteAccount(name))
+            {
+                MessageBox.Show("Xóa tài khoản thành công");
+                LoadAcList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa tài khoản");
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            string name = tbTenDN.Text;
+            string pass = tbMatKhau.Text;
+            if (AccountDAO.Instance.UpdateAccount(name, pass))
+            {
+                MessageBox.Show("Sửa tài khoản thành công");
+                LoadAcList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa tài khoản");
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            ListAccount.DataSource = searchAccountByName(tbSearchAccByName.Text);
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            loadCusList();
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            string tenKH = tbCusName.Text;
+            string dchiKH = tbCusAdd.Text;
+
+            if (cusDAO.Instance.InsertCus(tenKH, dchiKH))
+            {
+                MessageBox.Show("Thêm thông tin khách hàng thành công");
+                loadCusList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm thông tin khách hàng");
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            string maKH = tbCusID.Text;
+            string TenKH = tbCusName.Text;
+            string dchi = tbCusAdd.Text;
+            if (cusDAO.Instance.UpdateCus(maKH, TenKH, dchi))
+            {
+                MessageBox.Show("Sửa thông tin khách hàng thành công");
+                loadCusList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa thông tin khách hàng");
+            }
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            string maKH = tbCusID.Text;
+            if (cusDAO.Instance.DeleteCus(maKH))
+            {
+                MessageBox.Show("Xóa khách hàng thành công");
+                loadCusList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa khách hàng");
+            }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = searchCustomerByName(textBoxSearchCusByName.Text);
+        }
     }
 }
  

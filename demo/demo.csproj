@@ -49,12 +49,15 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\cateDAO.cs" />
     <Compile Include="DAO\cusDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\BillInfor.cs" />
+    <Compile Include="DTO\cate.cs" />
     <Compile Include="DTO\cus.cs" />
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\Product.cs" />

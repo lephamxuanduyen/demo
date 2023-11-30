@@ -17,26 +17,26 @@ namespace demo
         public fOrderManager()
         {
             InitializeComponent();
-            loadCus();
+            // loadCus();
         }
 
         #region Method
 
-        void loadCus()
-        {
-            List<cus> cusList = cusDAO.Instance.loadCusList();
-
-            foreach (cus item in cusList)
-            {
-                Button btn = new Button() { Width = cusDAO.cusWidth, Height = cusDAO.cusHeight};
-                btn.Text = item.Id + Environment.NewLine + item.Name;
-                btn.BackColor = Color.Aqua;
-                btn.Click += btn_Click;
-                btn.Tag = item;
-
-                fltabCus.Controls.Add(btn);
-            }
-        }
+        // void loadCus()
+        // {
+        //     List<cus> cusList = cusDAO.Instance.GetCusList();
+        // 
+        //     foreach (cus item in cusList)
+        //     {
+        //         Button btn = new Button() { Width = cusDAO.cusWidth, Height = cusDAO.cusHeight};
+        //         btn.Text = item.Id + Environment.NewLine + item.Name;
+        //         btn.BackColor = Color.Aqua;
+        //         btn.Click += btn_Click;
+        //         btn.Tag = item;
+        // 
+        //         fltabCus.Controls.Add(btn);
+        //     }
+        // }
 
         void showBill(string id)
         {

@@ -18,10 +18,10 @@ namespace demo.DAO
             private set { instance = value; }
         }
 
-        public static int cusWidth = 120;
-        public static int cusHeight = 60;
+        // public static int cusWidth = 120;
+        // public static int cusHeight = 60;
         private cusDAO() { }
-        public List<cus> loadCusList()
+        public List<cus> GetCusList()
         {
             List<cus> cusList = new List<cus>();
 
@@ -33,6 +33,38 @@ namespace demo.DAO
                 cusList.Add(Cus);
             }
             return cusList;
+        }
+        public bool InsertCus(string name, string dchi)
+        {
+            string query = "spInsertCus @ten , @dchi";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, dchi});
+            return result > 0;
+        }
+
+        public bool UpdateCus(string maKH,string name, string dchi)
+        {
+            string query = "spUpdateCus @idKH , @TenKH , @dchi";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maKH,name, dchi });
+            return result > 0;
+        }
+
+        public bool DeleteCus(string maKH)
+        {
+            string query = "spDeleteCus @idKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maKH });
+            return result > 0;
+        }
+        public List<cus> SearchCustomersByName(string name)
+        {
+            List<cus> CusList = new List<cus>();
+            string query = string.Format("select * from khachhang where TenKH like N'%{0}%'", name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                cus prod = new cus(item);
+                CusList.Add(prod);
+            }
+            return CusList;
         }
     }
 }
