@@ -392,6 +392,7 @@
             // 
             this.tbTenDN.Location = new System.Drawing.Point(97, 3);
             this.tbTenDN.Name = "tbTenDN";
+            this.tbTenDN.ReadOnly = true;
             this.tbTenDN.Size = new System.Drawing.Size(237, 22);
             this.tbTenDN.TabIndex = 1;
             // 
@@ -528,7 +529,6 @@
             // 
             this.textBox16.Location = new System.Drawing.Point(97, 3);
             this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(237, 22);
             this.textBox16.TabIndex = 1;
             // 
@@ -722,6 +722,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Tìm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // panel11
             // 
@@ -742,6 +743,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Xem";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -751,6 +753,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -760,6 +763,7 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -769,6 +773,7 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "Thêm";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel12
             // 
@@ -923,6 +928,7 @@
             // 
             this.tbIDProd.Location = new System.Drawing.Point(97, 3);
             this.tbIDProd.Name = "tbIDProd";
+            this.tbIDProd.ReadOnly = true;
             this.tbIDProd.Size = new System.Drawing.Size(237, 22);
             this.tbIDProd.TabIndex = 1;
             // 

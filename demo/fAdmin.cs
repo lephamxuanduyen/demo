@@ -19,6 +19,7 @@ namespace demo
         BindingSource ListProd = new BindingSource();
         BindingSource ListAccount = new BindingSource();
         BindingSource ListCustomer = new BindingSource();
+        BindingSource ListCate = new BindingSource();
 
         public fAdmin()
         {
@@ -26,6 +27,12 @@ namespace demo
             load();
         }
         #region method
+
+        List<cate> searchCateByName(string name)
+        {
+            List<cate> cateList = cateDAO.Instance.SearchCateByName(name);
+            return cateList;
+        }
 
         List<Product> searchProdByName(string name)
         {
@@ -44,11 +51,13 @@ namespace demo
             List<cus> CustomerList = cusDAO.Instance.SearchCustomersByName(name);
             return CustomerList;
         }
+       
         void load()
         {
             dataGridView2.DataSource = ListProd;
             dataGridView6.DataSource = ListAccount;
             dataGridView1.DataSource = ListCustomer;
+            dataGridView3.DataSource = ListCate;
 
             loadCusList();
             loadProdList();
@@ -60,6 +69,7 @@ namespace demo
             AddProdBinding();
             AddAccountBinding();
             AddCusBinding();
+            AddCateBinding();
         }
 
         void LoadAcList() 
@@ -85,6 +95,7 @@ namespace demo
 
         void loadCateList()
         {
+            // ListCate.DataSource = cateDAO.Instance.GetListCate();
             string query = "select * from LOAIHANG";
             dataGridView3.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
@@ -201,6 +212,12 @@ namespace demo
         private void btnView_Click(object sender, EventArgs e)
         {
             loadProdList();
+        }
+
+        void AddCateBinding()
+        {
+            tbIDCate.DataBindings.Add(new Binding("Text", dataGridView3.DataSource, "MaLoaiHang", true, DataSourceUpdateMode.Never));
+            tbCate.DataBindings.Add(new Binding("Text", dataGridView3.DataSource, "TenLoaiHang", true, DataSourceUpdateMode.Never));
         }
 
         void AddProdBinding()
@@ -340,6 +357,60 @@ namespace demo
         private void button22_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = searchCustomerByName(textBoxSearchCusByName.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadCateList();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string name = tbCate.Text;
+            if (cateDAO.Instance.InsertCate(name))
+            {
+                MessageBox.Show("Thêm loại hàng thành công");
+                loadCateList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm loại hàng");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string id = tbIDCate.Text;
+            string name = tbCate.Text;
+            if (cateDAO.Instance.updateCate(id, name))
+            {
+                MessageBox.Show("Sửa thông tin loại hàng thành công");
+                loadCateList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa thông tin loại hàng");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string id = tbIDCate.Text;
+            if (cateDAO.Instance.deleteCate(id))
+            {
+                MessageBox.Show("Xóa loại hàng thành công");
+                loadCateList();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa loại hàng");
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            string name = tbSearchByCate.Text;
+            dataGridView3.DataSource = searchCateByName(name);
         }
     }
 }

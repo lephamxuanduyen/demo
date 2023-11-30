@@ -14,7 +14,7 @@ namespace demo.DAO
 
         public static cusDAO Instance 
         {
-            get { if (instance == null) instance = new cusDAO(); return instance; }
+            get { if (instance == null) instance = new cusDAO(); return cusDAO.instance; }
             private set { instance = value; }
         }
 
