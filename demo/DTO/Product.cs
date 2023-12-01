@@ -14,16 +14,16 @@ namespace demo.DTO
         private string donvi;
         private int giaNhap;
         private int giaBan;
-        private string maLoaiHang;
+        private string loaiHang;
 
-        public Product(string maSP, string tenSP, string donvi, int giaNhap, int giaBan, string maLoaiHang)
+        public Product(string maSP, string tenSP, string donvi, int giaNhap, int giaBan, string loaiHang)
         {
             this.MaSP = maSP;
             this.TenSP = tenSP;
             this.Donvi = donvi;
             this.GiaNhap = giaNhap;
             this.GiaBan = giaBan;
-            this.MaLoaiHang = maLoaiHang;
+            this.LoaiHang = loaiHang;
         }
 
         public Product(DataRow row)
@@ -33,7 +33,7 @@ namespace demo.DTO
             this.Donvi = row["DonVi"].ToString();
             this.GiaNhap = (int)row["GiaNhap"];
             this.GiaBan = (int)row["GiaBan"];
-            this.MaLoaiHang = row["MaLoaiHang"].ToString();
+            this.LoaiHang = row["TenLoaiHang"].ToString();
         }
 
         public string MaSP { get => maSP; set => maSP = value; }
@@ -41,6 +41,6 @@ namespace demo.DTO
         public string Donvi { get => donvi; set => donvi = value; }
         public int GiaNhap { get => giaNhap; set => giaNhap = value; }
         public int GiaBan { get => giaBan; set => giaBan = value; }
-        public string MaLoaiHang { get => maLoaiHang; set => maLoaiHang = value; }
+        public string LoaiHang { get => loaiHang; set => loaiHang = value; }
     }
 }

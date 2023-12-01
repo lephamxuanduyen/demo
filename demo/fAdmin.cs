@@ -57,7 +57,7 @@ namespace demo
             List<cus> CustomerList = cusDAO.Instance.SearchCustomersByName(name);
             return CustomerList;
         }
-       
+
         void load()
         {
             dataGridView2.DataSource = ListProd;
@@ -79,7 +79,7 @@ namespace demo
             AddSupplyBinding();
         }
 
-        void LoadAcList() 
+        void LoadAcList()
         {
             ListAccount.DataSource = AccountDAO.Instance.GetListAccount();
             // string query = "select * from NguoiBan";
@@ -95,9 +95,9 @@ namespace demo
 
         void loadProdList()
         {
-            ListProd.DataSource = ProductDAO.Instance.GetListProducts();
-            // string query = "select TenSP, DonVi, GiaBan, GiaNhap, TonKho from HANG";
-            // dataGridView2.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            // ListProd.DataSource = ProductDAO.Instance.GetListProducts();
+            string query = "select MaSP, TenSP, DonVi, GiaBan, GiaNhap, TonKho, TenLoaiHang from HANG h join LoaiHang lh on h.MaLoaiHang = lh.MaLoaiHang";
+            dataGridView2.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
         void loadCateList()
@@ -125,19 +125,19 @@ namespace demo
             dataGridView7.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
-        
+
 
         #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name =  tbName.Text;
+            string name = tbName.Text;
             string donvi = tbDonvi.Text;
             int giaban = (int)numNhap.Value;
             int giahap = (int)numBan.Value;
-            string maloai = tbLoaiHang.Text;
+            string loai = tbLoaiHang.Text;
 
-            if (ProductDAO.Instance.InsertProd(name, donvi, giaban, giahap, maloai))
+            if (ProductDAO.Instance.InsertProd(name, donvi, giaban, giahap, loai))
             {
                 MessageBox.Show("Thêm sản phẩm thành công");
                 loadProdList();
@@ -187,7 +187,7 @@ namespace demo
         {
             string masp = tbIDProd.Text;
 
-            if (ProductDAO.Instance.deleteProd( masp))
+            if (ProductDAO.Instance.deleteProd(masp))
             {
                 MessageBox.Show("Xóa sản phẩm thành công");
                 loadProdList();
@@ -198,13 +198,13 @@ namespace demo
             }
         }
 
-        
+
 
         private void label6_Click(object sender, EventArgs e)
         {
-            
+
         }
-       
+
         private void fAdmin_Load(object sender, EventArgs e)
         {
 
@@ -229,20 +229,21 @@ namespace demo
 
         void AddProdBinding()
         {
-            tbIDProd.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaSP", true, DataSourceUpdateMode.Never));
+            tbIDProd.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "MaSP", true, DataSourceUpdateMode.Never));
             tbName.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "TenSP", true, DataSourceUpdateMode.Never));
             tbDonvi.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "Donvi", true, DataSourceUpdateMode.Never));
-            numNhap.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
             numBan.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaBan", true, DataSourceUpdateMode.Never));
-            tbLoaiHang.DataBindings.Add(new Binding("Text", dataGridView2.DataSource,"MaLoaiHang", true, DataSourceUpdateMode.Never));
+            numNhap.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
+            numCount.DataBindings.Add(new Binding("Value", dataGridView2.DataSource, "TonKho", true, DataSourceUpdateMode.Never));
+            tbLoaiHang.DataBindings.Add(new Binding("Text", dataGridView2.DataSource, "TenLoaiHang", true, DataSourceUpdateMode.Never));
 
         }
 
         void AddCusBinding()
         {
-            tbCusID.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "MaKH",true, DataSourceUpdateMode.Never));
+            tbCusID.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "MaKH", true, DataSourceUpdateMode.Never));
             tbCusName.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "TenKH", true, DataSourceUpdateMode.Never));
-            tbCusAdd.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DchiKH", true,DataSourceUpdateMode.Never));
+            tbCusAdd.DataBindings.Add(new Binding("Text", dataGridView1.DataSource, "DchiKH", true, DataSourceUpdateMode.Never));
         }
 
         void AddAccountBinding()
@@ -436,7 +437,7 @@ namespace demo
             string name = tbTenNPP.Text;
             string dchi = tbDchiNPP.Text;
             string sdt = tbSdtNPP.Text;
-            string dd = tbDdNPP.Text;   
+            string dd = tbDdNPP.Text;
             string stk = tbStkNPP.Text;
             if (SupplyDAO.Instance.InsertSupply(name, dchi, sdt, dd, stk))
             {
@@ -447,7 +448,7 @@ namespace demo
             {
                 MessageBox.Show("Có lỗi khi thêm nhà phân phối");
             }
-                
+
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -495,4 +496,3 @@ namespace demo
         }
     }
 }
- 

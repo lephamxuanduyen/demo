@@ -38,28 +38,28 @@ namespace demo
         //     }
         // }
 
-        void showBill(string id)
-        {
-            listView1.Items.Clear();
-            List<demo.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByCus(id);
-
-            foreach (demo.DTO.Menu item in listBillInfo)
-            {
-                ListViewItem lsvitem = new ListViewItem(item.ProdName.ToString());
-                lsvitem.SubItems.Add(item.Count.ToString());
-                lsvitem.SubItems.Add(item.TotalPrice.ToString());
-
-                listView1.Items.Add(lsvitem);
-            }
-        }
+        // void showBill(string id)
+        // {
+        //     listView1.Items.Clear();
+        //     List<demo.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByCus(id);
+        // 
+        //     foreach (demo.DTO.Menu item in listBillInfo)
+        //     {
+        //         ListViewItem lsvitem = new ListViewItem(item.ProdName.ToString());
+        //         lsvitem.SubItems.Add(item.Count.ToString());
+        //         lsvitem.SubItems.Add(item.TotalPrice.ToString());
+        // 
+        //         listView1.Items.Add(lsvitem);
+        //     }
+        // }
         #endregion
 
         #region Events
-        void btn_Click(object sender, EventArgs e)
-        {
-            string cusID = ((sender as Button).Tag as cus).Id;
-            showBill(cusID);
-        }
+        // void btn_Click(object sender, EventArgs e)
+        // {
+        //     string cusID = ((sender as Button).Tag as cus).Id;
+        //     showBill(cusID);
+        // }
         #endregion
 
         private void fTableManager_Load(object sender, EventArgs e)
@@ -115,6 +115,18 @@ namespace demo
 
         private void fltabCus_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string query = "";
+            dataGridViewOrder.DataSource = query;
+
         }
     }
 }
