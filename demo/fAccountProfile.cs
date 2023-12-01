@@ -34,7 +34,6 @@ namespace demo
             numBan.DataBindings.Add(new Binding("Value", dataGridViewNhap.DataSource, "GiaBan"));
             numNhap.DataBindings.Add(new Binding("Value", dataGridViewNhap.DataSource, "GiaNhap"));
             tbMaNhap.DataBindings.Add(new Binding("Text", dataGridViewNhap.DataSource, "MaNhap"));
-            tbNPP.DataBindings.Add(new Binding("Text", dataGridViewNhap.DataSource, "TenNPP"));
         }
         #endregion
 
@@ -46,22 +45,66 @@ namespace demo
             int sl = (int)numSL.Value;
             int giaban = (int)numNhap.Value;
             int gianhap = (int)numBan.Value;
-            dataGridViewNhap.DataSource = NhapDAO.Instance.InsertNhap(tensp, sl, giaban, gianhap);
+            if (NhapDAO.Instance.InsertNhap(tensp, sl, giaban, gianhap))
+            {
+                MessageBox.Show("Thêm sản phẩm thành công");
+                showNhap();
+            }    
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm sản phẩm");
+            }    
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string tensp = tbTenSP.Text;
             int sl = (int)numSL.Value;
-            int giaban = (int)numNhap.Value;
-            int gianhap = (int)numBan.Value;
-            dataGridViewNhap.DataSource = NhapDAO.Instance.UpdateNhap(tensp, sl, giaban, gianhap);
+            int giaban = (int)numBan.Value;
+            int gianhap = (int)numNhap.Value;
+            if (NhapDAO.Instance.UpdateNhap(tensp, sl, giaban, gianhap))
+            {
+                MessageBox.Show("Sửa sản phẩm thành công");
+                showNhap();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa sản phẩm");
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             string tensp = tbTenSP.Text;
-            dataGridViewNhap.DataSource = NhapDAO.Instance.DeleteNhap(tensp);
+            if (NhapDAO.Instance.DeleteNhap(tensp))
+            {
+                MessageBox.Show("Xóa sản phẩm thành công");
+                showNhap();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa sản phẩm");
+            }
+        }
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            showNhap();
+        }
+
+
+        private void btnNhap_Click(object sender, EventArgs e)
+        {
+            string id = tbMaNhap.Text;
+            string tenNPP = tbNPP.Text;
+            if (NhapDAO.Instance.Nhap(id, tenNPP))
+            {
+                MessageBox.Show("Nhập thành công");
+                showNhap();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi nhập hàng");
+            }
         }
 
         #endregion
@@ -116,6 +159,5 @@ namespace demo
 
         }
 
-        
     }
 }

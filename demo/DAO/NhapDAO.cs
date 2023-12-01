@@ -29,6 +29,7 @@ namespace demo.DAO
         public bool UpdateNhap(string tensp, int sl, int giaban, int gianhap)
         {
             string query = "sUpdateNhap @tensp , @sl , @giaban , @gianhap";
+
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tensp, sl, giaban, gianhap });
             return result > 0;
         }
@@ -37,6 +38,13 @@ namespace demo.DAO
         {
             string query = "spDeleteNhap @tensp";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tensp });
+            return result > 0;
+        }
+
+        public bool Nhap(string tensp, string tenNPP)
+        {
+            string query = "spNhap @id , @tenNPP";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tensp, tenNPP });
             return result > 0;
         }
     }

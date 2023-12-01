@@ -53,6 +53,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.numNhap = new System.Windows.Forms.NumericUpDown();
+            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhap)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -220,6 +221,7 @@
             this.btnNhap.TabIndex = 3;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.UseVisualStyleBackColor = true;
+            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // panel2
             // 
@@ -307,11 +309,22 @@
             this.numNhap.Size = new System.Drawing.Size(275, 22);
             this.numNhap.TabIndex = 3;
             // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(720, 415);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(107, 38);
+            this.btnView.TabIndex = 8;
+            this.btnView.Text = "Xem";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
             // fAccountProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 473);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dataGridViewNhap);
             this.Controls.Add(this.panel1);
@@ -368,5 +381,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numBan;
+        private System.Windows.Forms.Button btnView;
     }
 }
