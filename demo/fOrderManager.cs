@@ -18,6 +18,8 @@ namespace demo
         {
             InitializeComponent();
             // loadCus();
+            loadBill();
+            addBillBinding();
         }
 
         #region Method
@@ -52,6 +54,13 @@ namespace demo
         //         listView1.Items.Add(lsvitem);
         //     }
         // }
+
+        void loadBill()
+        {
+            string query = "pTaoHoaDon";
+            dataGridViewOrder.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        }
+
         #endregion
 
         #region Events
@@ -60,6 +69,14 @@ namespace demo
         //     string cusID = ((sender as Button).Tag as cus).Id;
         //     showBill(cusID);
         // }
+
+        void addBillBinding()
+        {
+            tbTenSP.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "TenSP"));
+            numSL.DataBindings.Add(new Binding("Value", dataGridViewOrder.DataSource, "SoLuongBan"));
+            tbMaDH.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "MaDH"));
+            tbKH.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "TenKH"));
+        }
         #endregion
 
         private void fTableManager_Load(object sender, EventArgs e)
@@ -119,14 +136,66 @@ namespace demo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            string madh = tbMaDH.Text;
+            string tenkh = tbKH.Text;
+            if (BillDAO.Instance.ThanhToan(madh, tenkh))
+            {
+                MessageBox.Show("Thanh toán thành công");
+                loadBill();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thanh toán");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string query = "";
-            dataGridViewOrder.DataSource = query;
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string tensp = tbTenSP.Text;
+            int sl = (int)numSL.Value;
+            if (BillDAO.Instance.InsertBill(tensp, sl))
+            {
+                MessageBox.Show("Thêm sản phẩm thành công");
+                loadBill();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm sản phẩm");
+            }
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            string tensp = tbTenSP.Text;
+            if (BillDAO.Instance.RemoveBill(tensp))
+            {
+                MessageBox.Show("Xóa sản phẩm thành công");
+                loadBill();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi xóa sản phẩm");
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            string tensp = tbTenSP.Text;
+            int sl = (int)numSL.Value;
+            if (BillDAO.Instance.UpdateBill(tensp, sl))
+            {
+                MessageBox.Show("Sửa số lượng sản phẩm thành công");
+                loadBill();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi sửa số lượng sản phẩm");
+            }
         }
     }
 }

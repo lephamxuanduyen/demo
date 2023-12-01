@@ -1090,9 +1090,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 16);
+            this.label9.Size = new System.Drawing.Size(66, 16);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Mã loại hàng";
+            this.label9.Text = "Loại hàng";
             // 
             // panel16
             // 
@@ -1136,6 +1136,11 @@
             // 
             // numBan
             // 
+            this.numBan.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.numBan.Location = new System.Drawing.Point(97, 3);
             this.numBan.Maximum = new decimal(new int[] {
             1000000000,
@@ -1166,6 +1171,11 @@
             // 
             // numNhap
             // 
+            this.numNhap.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.numNhap.Location = new System.Drawing.Point(97, 3);
             this.numNhap.Maximum = new decimal(new int[] {
             1000000000,
