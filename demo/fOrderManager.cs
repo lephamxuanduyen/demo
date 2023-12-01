@@ -75,7 +75,6 @@ namespace demo
             tbTenSP.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "TenSP"));
             numSL.DataBindings.Add(new Binding("Value", dataGridViewOrder.DataSource, "SoLuongBan"));
             tbMaDH.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "MaDH"));
-            tbKH.DataBindings.Add(new Binding("Text", dataGridViewOrder.DataSource, "TenKH"));
         }
         #endregion
 

@@ -15,7 +15,7 @@ namespace demo.DAO
         public static SupplyDAO Instance 
         { 
             get { if (instance == null) instance = new SupplyDAO(); return SupplyDAO.instance; }
-            set => instance = value; 
+            private set => instance = value; 
         }
         private SupplyDAO() { }
         public List<Supply> GetSuppliesList()

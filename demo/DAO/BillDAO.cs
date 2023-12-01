@@ -36,7 +36,7 @@ namespace demo.DAO
 
         public bool UpdateBill(string tensp, int sl)
         {
-            string query = "spUpdateProd @tenSP , @sl";
+            string query = "spUpdateProd @tenSP , @slMoi";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tensp, sl });
             return result > 0;
         }

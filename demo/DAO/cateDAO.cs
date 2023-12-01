@@ -15,7 +15,7 @@ namespace demo.DAO
         public static cateDAO Instance 
         { 
             get { if (instance == null) instance = new cateDAO(); return cateDAO.instance; } 
-            set => instance = value; 
+            private set => instance = value; 
         }
         private cateDAO() { }
         public List<cate> GetListCate()

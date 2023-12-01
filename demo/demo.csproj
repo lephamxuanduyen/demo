@@ -53,6 +53,7 @@
     <Compile Include="DAO\cusDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DAO\NhapDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\SupplyDAO.cs" />
     <Compile Include="DTO\Account.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DTO\cate.cs" />
     <Compile Include="DTO\cus.cs" />
     <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\Nhap.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\Supply.cs" />
     <Compile Include="fAccountProfile.cs">
